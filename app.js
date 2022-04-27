@@ -20,8 +20,7 @@ const main = async () => {
 
     do {
         opt = await inquirerMenu();
-        console.log({ opt })
-
+        
         switch (opt) {
             case '1':
                 const desc = await leerInput('Descripcion:');
@@ -31,6 +30,11 @@ const main = async () => {
             case '2':
                 tareas.listadoCompleto();
                 break;
+            case '3':
+                tareas.listarPendientesCompletadas();
+                break;
+            case '4':
+                tareas.listarPendientesCompletadas(false);
         }
 
         guardarDB(tareas.listadoArr);
